@@ -54,21 +54,21 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
-			'password'  => '',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
+			'host'      => array_get($_ENV, "MYSQL_HOSTNAME", "localhost"),
+			'database'  => array_get($_ENV, "MYSQL_DATABASE", "forge"),
+			'username'  => array_get($_ENV, "MYSQL_USERNAME", "forge"),
+			'password'  => array_get($_ENV, "MYSQL_PASSWORD", ""),
+			'charset'   => 'utf8mb4',
+			'collation' => 'utf8mb4_unicode_ci',
 			'prefix'    => '',
 		),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'forge',
-			'username' => 'forge',
-			'password' => '',
+			'host'     => array_get($_ENV, "PGSQL_HOSTNAME", "localhost"),
+			'database' => array_get($_ENV, "PGSQL_DATABASE", "forge"),
+			'username' => array_get($_ENV, "PGSQL_USERNAME", "forge"),
+			'password' => array_get($_ENV, "PGSQL_PASSWORD", ""),
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
@@ -76,10 +76,10 @@ return array(
 
 		'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
+			'host'     => array_get($_ENV, "SQLSRV_HOSTNAME", "localhost"),
+			'database' => array_get($_ENV, "SQLSRV_DATABASE", "database"),
+			'username' => array_get($_ENV, "SQLSRV_USERNAME", "root"),
+			'password' => array_get($_ENV, "SQLSRV_PASSWORD", ""),
 			'prefix'   => '',
 		),
 

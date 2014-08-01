@@ -31,7 +31,13 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+$file = array_get($ENV, "LOG_FILE");
+$method = array_get($ENV, "LOG_AUTO_ROTATE") ? "useDailyFiles" : "useFiles";
+if (!empty($file)) {
+    Log::$method($file);
+} else {
+    Log::$method(storage_path().'/logs/laravel.log');
+}
 
 /*
 |--------------------------------------------------------------------------
